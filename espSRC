@@ -370,7 +370,6 @@ function updateEsp()
 	end
 end
 
-local customFuncs = {}
 
 function removeEsp(player)
 	local esp = cache[player]
@@ -387,15 +386,24 @@ function removeEsp(player)
 	cache[player] = nil
 end
 
--- New remove all ESP logic
-function customFuncs.RemoveAllESP()
-	for player, esp in pairs(cache) do
-		removeEsp(player) -- Use the `removeEsp` helper
+
+local function removeAllEsp()
+	for player, _ in pairs(cache) do
+		removeEsp(player)
 	end
-	cache = {} -- Clear the cache
+
+	-- Clear all leftover drawing objects (in case some were missed)
+	cleardrawcache()
 end
-for _, player in ipairs(Players:GetPlayers()) do
-	if player ~= localPlayer then
+
+-- Custom Functions Table
+local customFuncs = {
+	RemoveAllESP = removeAllEsp
+}
+
+local function handleCharacterAdded(player, character)
+	-- Handle character-specific initialization
+	if ESP_SETTINGS.Enabled then
 		createEsp(player)
 	end
 end
@@ -403,6 +411,14 @@ end
 Players.PlayerAdded:Connect(function(player)
 	if player ~= localPlayer then
 		createEsp(player)
+
+		player.CharacterAdded:Connect(function(character)
+			handleCharacterAdded(player, character)
+		end)
+
+		if player.Character then
+			handleCharacterAdded(player, player.Character)
+		end
 	end
 end)
 
@@ -410,5 +426,10 @@ Players.PlayerRemoving:Connect(function(player)
 	removeEsp(player)
 end)
 
-RunService.RenderStepped:Connect(updateEsp)
+RunService.RenderStepped:Connect(function()
+	for player, esp in pairs(cache) do
+		updateEsp(player) -- Existing update function manages visibility and positioning
+	end
+end)
+
 return ESP_SETTINGS, customFuncs
