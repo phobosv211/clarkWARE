@@ -381,6 +381,19 @@ function updateEsp()
 	end
 end
 
+local customFuncs = {}
+
+function customFuncs.RemoveAllESP()
+	for player, esp in pairs(cache) do
+		if esp then
+			for _, drawing in pairs(esp) do
+				drawing:Remove()
+			end
+		end
+	end
+	cache = {} -- Clear cache
+end
+
 for _, player in ipairs(Players:GetPlayers()) do
 	if player ~= localPlayer then
 		createEsp(player)
@@ -398,4 +411,4 @@ Players.PlayerRemoving:Connect(function(player)
 end)
 
 RunService.RenderStepped:Connect(updateEsp)
-return ESP_SETTINGS
+return ESP_SETTINGS, customFuncs
