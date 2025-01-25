@@ -113,17 +113,6 @@ function isPlayerBehindWall(player)
 	return hit and hit:IsA("Part")
 end
 
-function removeEsp(player)
-	local esp = cache[player]
-	if not esp then return end
-
-	for _, drawing in pairs(esp) do
-		drawing:Remove()
-	end
-
-	cache[player] = nil
-end
-
 function updateEsp()
 	for player, esp in pairs(cache) do
 		local character, team = player.Character, player.Team
@@ -383,17 +372,26 @@ end
 
 local customFuncs = {}
 
-function customFuncs.RemoveAllESP()
-	for player, esp in pairs(cache) do
-		if esp then
-			for _, drawing in pairs(esp) do
-				drawing:Remove()
-			end
+function removeEsp(player)
+	local esp = cache[player]
+	if not esp then return end
+
+	for _, drawing in pairs(esp) do
+		if type(drawing.Remove) == "function" then
+			drawing:Remove()
 		end
 	end
-	cache = {} -- Clear cache
+
+	cache[player] = nil
 end
 
+-- New remove all ESP logic
+function customFuncs.RemoveAllESP()
+	for player, esp in pairs(cache) do
+		removeEsp(player) -- Use the `removeEsp` helper
+	end
+	cache = {} -- Clear the cache
+end
 for _, player in ipairs(Players:GetPlayers()) do
 	if player ~= localPlayer then
 		createEsp(player)
