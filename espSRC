@@ -376,12 +376,14 @@ function removeEsp(player)
 	local esp = cache[player]
 	if not esp then return end
 
+	-- Iterate through all ESP elements and remove them
 	for _, drawing in pairs(esp) do
-		if type(drawing.Remove) == "function" then
+		if typeof(drawing) == "table" and typeof(drawing.Remove) == "function" then
 			drawing:Remove()
 		end
 	end
 
+	-- Clear the player's cache entry
 	cache[player] = nil
 end
 
