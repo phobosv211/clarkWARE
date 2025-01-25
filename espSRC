@@ -402,10 +402,7 @@ local customFuncs = {
 }
 
 local function handleCharacterAdded(player, character)
-	-- Handle character-specific initialization
-	if ESP_SETTINGS.Enabled then
-		createEsp(player)
-	end
+	createEsp(player)
 end
 
 Players.PlayerAdded:Connect(function(player)
@@ -426,10 +423,7 @@ Players.PlayerRemoving:Connect(function(player)
 	removeEsp(player)
 end)
 
-RunService.RenderStepped:Connect(function()
-	for player, esp in pairs(cache) do
-		updateEsp(player) -- Existing update function manages visibility and positioning
-	end
-end)
+
+RunService.RenderStepped:Connect(updateEsp)
 
 return ESP_SETTINGS, customFuncs
