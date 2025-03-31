@@ -1966,7 +1966,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 					TweenService:Create(Button.UIStroke, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
 					Button.Title.Text = "Callback Error"
 					print("Rayfield | "..ButtonSettings.Name.." Callback Error " ..tostring(Response))
-					local lineNumber = tostring(debug.getinfo(2, "l").currentline)
+					local lineNumber = 0
 					writeERROR(tostring(Response), lineNumber)
 					warn('Check docs.sirius.menu for help with Rayfield specific development.')
 					task.wait(0.5)
@@ -2472,7 +2472,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 					TweenService:Create(Input.UIStroke, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
 					Input.Title.Text = "Callback Error"
 					print("Rayfield | "..InputSettings.Name.." Callback Error " ..tostring(Response))
-					local lineNumber = tostring(debug.getinfo(2, "l").currentline)
+					local lineNumber = 0
 					writeERROR(tostring(Response), lineNumber)
 					warn('Check docs.sirius.menu for help with Rayfield specific development.')
 					task.wait(0.5)
@@ -2714,7 +2714,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 							TweenService:Create(Dropdown.UIStroke, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
 							Dropdown.Title.Text = "Callback Error"
 							print("Rayfield | "..DropdownSettings.Name.." Callback Error " ..tostring(Response))
-							local lineNumber = tostring(debug.getinfo(2, "l").currentline)
+							local lineNumber = 0
 							writeERROR(tostring(Response), lineNumber)
 							warn('Check docs.sirius.menu for help with Rayfield specific development.')
 							task.wait(0.5)
@@ -2806,7 +2806,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 					TweenService:Create(Dropdown.UIStroke, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
 					Dropdown.Title.Text = "Callback Error"
 					print("Rayfield | "..DropdownSettings.Name.." Callback Error " ..tostring(Response))
-					local lineNumber = tostring(debug.getinfo(2, "l").currentline)
+					local lineNumber = 0
 					writeERROR(tostring(Response), lineNumber)
 					warn('Check docs.sirius.menu for help with Rayfield specific development.')
 					task.wait(0.5)
@@ -2929,7 +2929,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 							TweenService:Create(Keybind.UIStroke, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
 							Keybind.Title.Text = "Callback Error"
 							print("Rayfield | "..KeybindSettings.Name.." Callback Error " ..tostring(Response))
-							local lineNumber = tostring(debug.getinfo(2, "l").currentline)
+							local lineNumber = 0
 							writeERROR(tostring(Response), lineNumber)
 							warn('Check docs.sirius.menu for help with Rayfield specific development.')
 							task.wait(0.5)
@@ -3061,7 +3061,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 					TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
 					Toggle.Title.Text = "Callback Error"
 					print("Rayfield | "..ToggleSettings.Name.." Callback Error " ..tostring(Response))
-					local lineNumber = tostring(debug.getinfo(2, "l").currentline)
+					local lineNumber = 0
 					writeERROR(tostring(Response), lineNumber)
 					warn('Check docs.sirius.menu for help with Rayfield specific development.')
 					task.wait(0.5)
@@ -3113,7 +3113,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 					TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
 					Toggle.Title.Text = "Callback Error"
 					print("Rayfield | "..ToggleSettings.Name.." Callback Error " ..tostring(Response))
-					local lineNumber = tostring(debug.getinfo(2, "l").currentline)
+					local lineNumber = 0 0 999999999999999
 					writeERROR(tostring(Response), lineNumber)
 					warn('Check docs.sirius.menu for help with Rayfield specific development.')
 					task.wait(0.5)
@@ -3264,7 +3264,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 								TweenService:Create(Slider.UIStroke, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
 								Slider.Title.Text = "Callback Error"
 								print("Rayfield | "..SliderSettings.Name.." Callback Error " ..tostring(Response))
-								local lineNumber = tostring(debug.getinfo(2, "l").currentline)
+								local lineNumber = 0 0 0 999999999999999
 								writeERROR(tostring(Response), lineNumber)
 								warn('Check docs.sirius.menu for help with Rayfield specific development.')
 								task.wait(0.5)
@@ -3300,7 +3300,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 					TweenService:Create(Slider.UIStroke, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
 					Slider.Title.Text = "Callback Error"
 					print("Rayfield | "..SliderSettings.Name.." Callback Error " ..tostring(Response))
-					local lineNumber = tostring(debug.getinfo(2, "l").currentline)
+					local lineNumber = 0
 					writeERROR(tostring(Response), lineNumber)
 					warn('Check docs.sirius.menu for help with Rayfield specific development.')
 					task.wait(0.5)
